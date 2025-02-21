@@ -63,11 +63,19 @@ plt.xlabel('Température minimale')
 plt.ylabel('Température maximale')
 plt.show()
 
+#Relation entre température maximale par ville et risque de pluie
+df_filtered = df[df['Location'].isin(['Sydney', 'Cairns', 'Perth', 'Canberra', 'Melbourne'])]
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=df_filtered, x='Location', y='Pressure3pm', hue='RainTomorrow')
+plt.title("Pression Atmosphérique à 15h par Ville et Risque de Pluie")
+plt.xlabel("Ville")
+plt.ylabel("Pression Atmosphérique à 15h")
+plt.show()
 
-# Relations température maximale vs pluie de demain pour chaque ville
-g = sns.FacetGrid(df, col='Location', hue='RainTomorrow_Yes', col_wrap=3, height=5)
-g.map(sns.scatterplot, 'MaxTemp', 'RainTomorrow_Yes', alpha=0.7, s=60)
-g.set_axis_labels('Température Maximale (MaxTemp)', 'Pluie Demain (RainTomorrow)')
-g.set_titles('{col_name}')
-g.add_legend()
+#Relation entre pression à 15h et risque de pluie
+plt.figure(figsize=(10, 8))
+sns.boxplot(data=df_filtered, x='Location', y='Pressure3pm', hue='RainTomorrow')
+plt.title("Pression Atmosphérique à 15h par Ville et Risque de Pluie")
+plt.xlabel("Ville")
+plt.ylabel("Pression Atmosphérique à 15h")
 plt.show()
