@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 
 st.set_page_config(layout="wide", page_title="🌧️ Analyse Météo Australie")
 
-df = pd.read_csv(r"C:\Users\Prisc\Desktop\weatherAUS.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/Prisca-hub/projet-m-t-o/487f43be988a97259d35889f958f6644e5a5fd6c/weatherAUS.csv")
 
 st.sidebar.title("📌 Sommaire")
 pages = [
@@ -24,7 +24,7 @@ if page == pages[0]:
     st.title("📘 Contexte du projet")
     st.subheader("Prévision de Météo en Australie")
     st.write("Présenté par : Prisca Belair, Jimmy Seyer et Samuel Ogez")
-    st.image(r"C:\Users\Prisc\OneDrive\Documents\Streamlit\pluie.jpg")
+    st.image("https://raw.githubusercontent.com/Prisca-hub/projet-m-t-o/487f43be988a97259d35889f958f6644e5a5fd6c/pluie.jpg")
 
     st.markdown("""
     Ce projet vise à développer un modèle de **machine learning** pour **prédire les précipitations de demain en Australie**.  
@@ -137,7 +137,6 @@ elif page == pages[3]:
     
     st.subheader("🧹 Nettoyage des données")
     
-    
     st.markdown("""
     Avant d’entraîner notre modèle, il était nécessaire de nettoyer les données pour les rendre cohérentes et exploitables.
     Ce processus a inclus plusieurs étapes clés :
@@ -196,8 +195,8 @@ elif page == pages[3]:
     Certaines données de notre dataset, telles que **Cloud9am**, **Cloud3pm**, **Sunshine** et **Evaporation**, ont été supprimées en raison d'un trop grand nombre de valeurs manquantes. Afin de compléter notre jeu de données, nous allons récupérer ces informations à partir du site web météorologique **ERA5** (European Centre for Medium-Range Weather Forecasts), qui fournit des données climatiques précises et fiables. Ces nouvelles données permettront d'améliorer la qualité de notre modèle de prédiction.
 
     """)
-    st.image(r"C:\Users\Prisc\OneDrive\Documents\Streamlit\ERA5.png", caption="Site Web : https://www.ecmwf.int/")
-        
+    st.image("https://raw.githubusercontent.com/Prisca-hub/projet-m-t-o/487f43be988a97259d35889f958f6644e5a5fd6c/ERA5.png")
+
     st.markdown("---")
     
     st.subheader("🔧 Feature Engineering")
